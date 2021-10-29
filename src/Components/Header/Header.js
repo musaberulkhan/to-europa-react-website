@@ -13,10 +13,10 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <Link className="nav-link active" aria-current="page" href="#">Home</Link>
+                            <Link className="nav-link" aria-current="page" href="#">Home</Link>
                             <Link className="nav-link" href="#">Features</Link>
                             <Link className="nav-link" href="#">Pricing</Link>
-                            <Link className="nav-link disabled">Disabled</Link>
+                            <Link className="nav-link">Disabled</Link>
                         </div>
                     </div>
                 </div>
