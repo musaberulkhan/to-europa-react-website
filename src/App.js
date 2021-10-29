@@ -4,24 +4,26 @@ import Header from './Components/Header/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './Components/Login/Login';
 import Home from './Components/Home/Home';
+import AuthProvider from './Context/AuthProvider';
 
 function App() {
   return (
-    <div className="app">
-      <Router>
-        <Header></Header>
+    <AuthProvider>
+      <div className="app">
+        <Router>
+          <Header></Header>
 
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          {/* <Route path="/about">
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            {/* <Route path="/about">
             <About></About>
           </Route> */}
-          {/* <Route path="/services">
+            {/* <Route path="/services">
             <Services />
           </Route>
           <Route path="/doctors">
@@ -48,9 +50,11 @@ function App() {
           <Route path="*">
             <NotFound></NotFound>
           </Route> */}
-        </Switch>
-      </Router>
-    </div>
+          </Switch>
+        </Router>
+      </div>
+    </AuthProvider>
+
   );
 }
 
