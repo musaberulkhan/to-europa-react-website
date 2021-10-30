@@ -8,6 +8,8 @@ import AuthProvider from './Context/AuthProvider';
 import Register from './Components/Register/Register';
 import Footer from './Components/Footer/Footer';
 import Packages from './Components/Packages/Packages';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Booking from './Components/Booking/Booking';
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
             <Route path="/packages">
             <Packages></Packages>
           </Route>
+          <PrivateRoute path="/booking">
+              <Booking></Booking>
+          </PrivateRoute>
             {/* <Route path="/services">
             <Services />
           </Route>

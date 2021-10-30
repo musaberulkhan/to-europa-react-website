@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { useEffect } from 'react/cjs/react.development';
 import Package from './Package/Package';
 import './Packages.css';
@@ -6,6 +7,7 @@ import './Packages.css';
 const Packages = () => {
 
     const [packages, setPackages] = useState([]);
+    let history = useHistory();
 
     useEffect(() => {
         fetch('http://localhost:5000/packages')
@@ -14,7 +16,7 @@ const Packages = () => {
     }, []);
 
     const handleBookNowClick = id => {
-        console.log(id);
+        history.push('/booking')
     }
 
     return (
