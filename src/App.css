@@ -10,3 +10,31 @@
   background-color: rgb(5, 79, 129);
   color: whitesmoke;
 }
+
+
+html,
+body {
+    height: 100%;
+    position: relative;
+}
+.app{
+    min-height: 100vh; 
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 350px; 
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .app{        
+      padding-bottom: 400px; 
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .app{        
+      padding-bottom: 650px; 
+  }
+}

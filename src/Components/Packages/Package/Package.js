@@ -5,7 +5,7 @@ const Package = (props) => {
     const { _id, image, name, duration, details, price } = props._package;
     const { handleBookNowClick } = props;
     return (
-        <div className="offer">
+        <div className="package">
             <div className="col h-100">
                 <div className="card h-100">
                     <img src={image} className="card-img-top" alt="..." />
@@ -22,7 +22,7 @@ const Package = (props) => {
                         </ul>
                     </div>
                     <div className="card-footer">
-                        <h5> {price} BDT </h5>
+                        <h5 className="px-2"> {price} BDT </h5>
                         <button onClick={() => handleBookNowClick(_id)} className="w-100 btn btn-book-now">Book Now</button>
                     </div>
                 </div>
