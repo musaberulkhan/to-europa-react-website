@@ -9,3 +9,8 @@
     height: 45px;
     margin-right: 8px;
 }
+
+.dropdown-item{
+    background-color: transparent!important;
+    color: black!important;
+}
