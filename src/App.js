@@ -10,6 +10,7 @@ import Footer from './Components/Footer/Footer';
 import Packages from './Components/Packages/Packages';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Booking from './Components/Booking/Booking';
+import Success from './Components/Booking/Success/Success';
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <PrivateRoute path="/booking/:packageId">
               <Booking></Booking>
+          </PrivateRoute>
+          <PrivateRoute path="/bookingSuccessful">
+            <Success></Success>
           </PrivateRoute>
             {/* <Route path="/services">
             <Services />
