@@ -31,7 +31,7 @@ function App() {
             <Route path="/packages">
             <Packages></Packages>
           </Route>
-          <PrivateRoute path="/booking">
+          <PrivateRoute path="/booking/:packageId">
               <Booking></Booking>
           </PrivateRoute>
             {/* <Route path="/services">

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react/cjs/react.development';
 import useAuth from '../../Hooks/useAuth';
 import './Register.css';
 
 const Register = () => {
     // ----------- States ------------
-    const { registerUserUsingEmailPassword, setIsLoading } = useAuth();
+    const { registerUserUsingEmailPassword, setIsLoading, user } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [reEnteredPassword, setReEnteredPassword] = useState('');
@@ -17,12 +18,18 @@ const Register = () => {
      const history = useHistory();
      const redirect_url = '/';
 
+     useEffect(() => {
+         if(user.email){
+            history.push("/");
+         }
+     },
+     []);
 
     // ----------- Handle Form Login ------------
     const handleFormLogin = (email, password) => {
         registerUserUsingEmailPassword(email, password)
             .then((userCredential) => {
-                // history.push(redirect_url);
+                history.push(redirect_url);
             })
             .catch((error) => {
                 setErrorMessage("Registration Failed!")

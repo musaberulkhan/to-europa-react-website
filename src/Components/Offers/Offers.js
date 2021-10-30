@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import Offer from './Offer/Offer';
 import './Offers.css';
 
 const Offers = () => {
 
     const [offers, setOffers] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         fetch('http://localhost:5000/offers')
@@ -13,7 +15,7 @@ const Offers = () => {
     }, []);
 
     const handleBookNowClick = (id) => {
-        console.log(id);
+        history.push(`/booking/${id}`);
     }
 
     return (

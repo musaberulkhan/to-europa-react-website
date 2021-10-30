@@ -17,16 +17,16 @@ const Login = () => {
  
  
      // ----------- Location ------------
-    //  const location = useLocation();
-    //  const history = useHistory();
-    //  const redirect_url = location.state?.from || '/';
+     const location = useLocation();
+     const history = useHistory();
+     const redirect_url = location.state?.from || '/';
  
  
      // ----------- Handle Google Sign In ------------
      const handleGoogleSignIn = () => {
          signInUsingGoogle()
              .then(result => {
-                //  history.push(redirect_url);
+                 history.push(redirect_url);
              })
              .finally(() => setIsLoading(false))
      }
@@ -35,7 +35,7 @@ const Login = () => {
      const handleFormLogin = (email, password) => {
          signInUserUsingEmailPassword(email, password)
              .then((userCredential) => {
-                //  history.push(redirect_url);
+                 history.push(redirect_url);
              })
              .catch((error) => {
                  setErrorMessage("Invalid Email or Password!")

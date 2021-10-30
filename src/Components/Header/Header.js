@@ -25,17 +25,25 @@ const Navigation = () => {
                         <NavLink className="nav-link" to="/about">About</NavLink>
                         <NavLink className="nav-link" to="/services">Services</NavLink>
                         <NavLink className="nav-link" to="/doctors">Doctors</NavLink>
-
-                        <li className="nav-item dropdown">
-                            <NavLink to="/" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin Panel
-                            </NavLink>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><NavLink className="dropdown-item" to="/">My Orders</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/">Manage All Orders</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/">Add A New Service</NavLink></li>
-                            </ul>
-                        </li>
+                        {
+                            user?.email ?
+                                (
+                                    <li className="nav-item dropdown">
+                                        <NavLink to="/" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Admin Panel
+                                        </NavLink>
+                                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><NavLink className="dropdown-item" to="/">My Orders</NavLink></li>
+                                            <li><NavLink className="dropdown-item" to="/">Manage All Orders</NavLink></li>
+                                            <li><NavLink className="dropdown-item" to="/">Add A New Service</NavLink></li>
+                                        </ul>
+                                    </li>
+                                )
+                                :
+                                (
+                                    <></>
+                                )
+                        }
                     </div>
                 </div>
 

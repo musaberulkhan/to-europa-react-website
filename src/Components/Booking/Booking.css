@@ -1,0 +1,14 @@
+.booking ul{
+    list-style: none;
+}
+.booking ul li i{
+    margin-right: 8px;
+}
+.booking .package{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+.booking .package-image{
+    height: 150px;
+
+}

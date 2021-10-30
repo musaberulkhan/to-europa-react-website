@@ -16,7 +16,7 @@ const Packages = () => {
     }, []);
 
     const handleBookNowClick = id => {
-        history.push('/booking')
+        history.push(`/booking/${id}`);
     }
 
     return (
