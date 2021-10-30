@@ -25,8 +25,7 @@ const Offers = () => {
                         key={offer._id}
                         handleBookNowClick={handleBookNowClick}
                         offer={offer}
-                    >
-                        
+                    >                        
                     </Offer>)
                 }
             </div>

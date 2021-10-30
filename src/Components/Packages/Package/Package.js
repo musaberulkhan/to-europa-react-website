@@ -1,8 +1,8 @@
 import React from 'react';
-import './Offer.css';
+import './Package.css';
 
-const Offer = (props) => {
-    const { _id, image, name, duration, details, regularPrice, discountedPrice } = props.offer;
+const Package = (props) => {
+    const { _id, image, name, duration, details, price } = props._package;
     const { handleBookNowClick } = props;
     return (
         <div className="offer">
@@ -20,10 +20,9 @@ const Offer = (props) => {
                                     <i className="fas fa-check"></i>{detail}</li>)
                             }
                         </ul>
-
                     </div>
                     <div className="card-footer">
-                        <h5> <span>{regularPrice}</span> {discountedPrice} BDT </h5>
+                        <h5> {price} BDT </h5>
                         <button onClick={() => handleBookNowClick(_id)} className="w-100 btn btn-book-now">Book Now</button>
                     </div>
                 </div>
@@ -32,4 +31,4 @@ const Offer = (props) => {
     );
 };
 
-export default Offer;
+export default Package;

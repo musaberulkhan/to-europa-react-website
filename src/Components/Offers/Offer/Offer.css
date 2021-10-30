@@ -1,3 +1,13 @@
+.offer .duration{
+    background-color: rgb(30, 80, 126);
+    font-size: 0.8rem;
+    vertical-align: super;
+    padding: 5px 12px;
+    border-radius: 15px;
+    color: whitesmoke;
+    display: inline;
+    
+}
 .offer .card-footer{
     background-color: transparent;
     border: none;
