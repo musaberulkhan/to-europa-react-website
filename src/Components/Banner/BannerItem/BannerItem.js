@@ -3,9 +3,7 @@ import './BannerItem.css';
 
 const BannerItem = (props) => {
     const { background, subtitle, title, description, image } = props;
-    console.log(background);
-    console.log(title);
-    console.log(description);
+
     return (
         <div style={{ backgroundImage: `url(${background})` }}
             className="banner-item container-fluid">
