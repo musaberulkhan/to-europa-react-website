@@ -35,7 +35,7 @@ const Navigation = () => {
                                         <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li><NavLink className="dropdown-item" to="/my-orders">My Orders</NavLink></li>
                                             <li><NavLink className="dropdown-item" to="/manage-all-orders">Manage All Orders</NavLink></li>
-                                            <li><NavLink className="dropdown-item" to="/add-a-new-service">Add A New Service</NavLink></li>
+                                            <li><NavLink className="dropdown-item" to="/add-a-new-package">Add A New Package</NavLink></li>
                                         </ul>
                                     </li>
                                 )

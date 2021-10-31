@@ -12,6 +12,7 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Booking from './Components/Booking/Booking';
 import Success from './Components/Booking/Success/Success';
 import MyOrders from './Components/MyOrders/MyOrders';
+import AddNewPackage from './Components/AddNewPackage/AddNewPackage';
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/my-orders">
             <MyOrders></MyOrders>
+          </PrivateRoute>
+          <PrivateRoute path="/add-a-new-package">
+            <AddNewPackage></AddNewPackage>
           </PrivateRoute>
             {/* <Route path="/services">
             <Services />
