@@ -3,7 +3,7 @@ import './Offer.css';
 
 const Offer = (props) => {
     const { _id, image, name, duration, details, regularPrice, discountedPrice } = props.offer;
-    const { handleBookNowClick } = props;
+   
     return (
         <div className="offer">
             <div className="col h-100">
@@ -24,7 +24,8 @@ const Offer = (props) => {
                     </div>
                     <div className="card-footer">
                         <h5> <span>{regularPrice}</span> {discountedPrice} BDT </h5>
-                        <button onClick={() => handleBookNowClick(_id)} className="w-100 btn btn-book-now">Book Now</button>
+                        <hr />
+                        <h6 className="text-center"><i className="fas fa-phone-alt me-2"></i>Call for Booking</h6>
                     </div>
                 </div>
             </div >

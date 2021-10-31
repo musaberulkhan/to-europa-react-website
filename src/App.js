@@ -13,6 +13,7 @@ import Booking from './Components/Booking/Booking';
 import Success from './Components/Booking/Success/Success';
 import MyOrders from './Components/MyOrders/MyOrders';
 import AddNewPackage from './Components/AddNewPackage/AddNewPackage';
+import Contact from './Components/Contact/Contact';
 
 function App() {
   return (
@@ -32,20 +33,25 @@ function App() {
               <Register></Register>
             </Route>
             <Route path="/packages">
-            <Packages></Packages>
-          </Route>
-          <PrivateRoute path="/booking/:packageId">
+              <Packages></Packages>
+            </Route>
+            
+            <PrivateRoute path="/booking/:packageId">
               <Booking></Booking>
-          </PrivateRoute>
-          <PrivateRoute path="/bookingSuccessful">
-            <Success></Success>
-          </PrivateRoute>
-          <PrivateRoute path="/my-orders">
-            <MyOrders></MyOrders>
-          </PrivateRoute>
-          <PrivateRoute path="/add-a-new-package">
-            <AddNewPackage></AddNewPackage>
-          </PrivateRoute>
+            </PrivateRoute>
+            <PrivateRoute path="/bookingSuccessful">
+              <Success></Success>
+            </PrivateRoute>
+            <PrivateRoute path="/my-orders">
+              <MyOrders></MyOrders>
+            </PrivateRoute>
+            <PrivateRoute path="/add-a-new-package">
+              <AddNewPackage></AddNewPackage>
+            </PrivateRoute>
+            <Route path="/contact">
+              <Contact></Contact>
+            </Route>
+
             {/* <Route path="/services">
             <Services />
           </Route>
