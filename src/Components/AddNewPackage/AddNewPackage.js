@@ -4,13 +4,31 @@ import './AddNewPackage.css';
 
 const AddNewPackage = () => {
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         const formData = data;
-        formData.details = formData.details.split(" ").join("").split(",");
-
+        formData.details = formData.details.split(",");
+        let trimedDetails = formData.details.map(detail => detail.trim());
+        formData.details = trimedDetails;
         
-        console.log(data);
+        fetch('http://localhost:5000/package', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged === true) {
+                    alert('Package Inserted');
+                    reset();
+                }
+                else {
+                    
+                }
+            });
+        
     }
     return (
         <div className="container py-5">
