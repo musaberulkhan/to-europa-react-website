@@ -8,6 +8,7 @@ const Banner = () => {
 
     const history = useHistory();
 
+    // ----------------------   Handle Buttons On Click     ----------------------- 
     const handleViewPackagesOnClick = () => {
         history.push("/packages");
     }
@@ -28,6 +29,7 @@ const Banner = () => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
+                         {/* ----------------------   Banner Item 1    -----------------------  */}
                         <BannerItem
                             background="images/banner1-bg.jpg"
                             subtitle="YOUR DREAM COUNTRIES ARE WAITING...."
@@ -39,6 +41,7 @@ const Banner = () => {
                         ></BannerItem>
                     </div>
                     <div className="carousel-item">
+                        {/* ----------------------   Banner Item 2    -----------------------  */}
                         <BannerItem
                             background="images/banner2-bg.jpg"
                             subtitle="WANT TO VISIT THE KING OF EUROPIAN LAND??"
@@ -50,6 +53,7 @@ const Banner = () => {
                         ></BannerItem>
                     </div>
                     <div className="carousel-item">
+                        {/* ----------------------   Banner Item 3    -----------------------  */}
                         <BannerItem
                             background="images/banner3-bg.jpg"
                             subtitle="WE ARE HERE TO MAKE YOUR DREAM TRUE"

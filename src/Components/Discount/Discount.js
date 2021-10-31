@@ -8,9 +8,12 @@ const Discount = () => {
         <div className="discount">
             <div className="container">
                 <div className="row">
+                    {/* -----------------   Discount Image   --------------- */}
                     <div className="col-md-6 col-12">
                         <img className="img-fluid p-5" src={Sale} alt="" />
                     </div>
+
+                    {/* -----------------   Discount Text   --------------- */}
                     <div className="col-md-6 col-12 p-5 d-flex align-items-center">
                         <div>
                             <h1 className="title"> Biggest <span>11.11 </span> Shopping day is on the way!</h1>

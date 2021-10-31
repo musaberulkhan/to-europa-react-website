@@ -6,8 +6,9 @@ const ManageOrder = (props) => {
     const { handleCancelBookingButton, handleApproveButton } = props;
     const [_package, setPackage] = useState({});
 
+    //----------------    Get Order Details    ---------------
     useEffect(() => {
-        fetch(`http://localhost:5000/packages/${packageId}`)
+        fetch(`https://grim-broomstick-65956.herokuapp.com/packages/${packageId}`)
             .then(res => res.json())
             .then(data => setPackage(data));
     }, []);
@@ -15,17 +16,20 @@ const ManageOrder = (props) => {
     return (
         <div className="manage-order px-4 py-3 my-4">
             <div className="row">
-                <div className="col-md-6 col-12 my-2 d-flex align-items-center">
+                {/* ----------------    Package Details    --------------- */}
+                <div className="col-md-6 col-12 my-2 d-flex flex-column flex-md-row align-items-center">
                     <div>
-                        <img className="img-fluid package-image me-2" src={_package?.image} alt="" />
+                        <img className="img-fluid package-image me-2 mb-3 mb-md-0" src={_package?.image} alt="" />
                     </div>
-                    <div>
+                    <div className="ps-2">
                         <h4>{_package?.name}</h4>
                         <h6>Duration: {_package?.duration}</h6>
                         <h6>Price: {_package?.price}</h6>
                         <h6>Status: {status}</h6>
                     </div>
                 </div>
+
+                {/* ----------------    Billing Information and Buttons    --------------- */}
                 <div className="col-md-6 col-12 my-2">
                     <h5>Billing Information</h5>
                     <p className="mb-0">Name: {name}</p>
@@ -39,8 +43,6 @@ const ManageOrder = (props) => {
                             : (
                                 <></>
                             )
-
-
                     }
 
                 </div>

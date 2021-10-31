@@ -25,6 +25,8 @@ const Header = () => {
                         <NavLink className="nav-link" to="/packages"><i className="fas fa-th-list me-1"></i>Packages</NavLink>
                         <NavLink className="nav-link" to="/about"><i className="fas fa-info-circle me-1"></i>About</NavLink>
                         <NavLink className="nav-link" to="/contact"><i className="fas fa-comments me-1"></i>Contact</NavLink>
+                        
+                        {/* -----------------   Protected Nav Links for Logged In Users  --------------- */}
                         {
                             user?.email ?
                                 (

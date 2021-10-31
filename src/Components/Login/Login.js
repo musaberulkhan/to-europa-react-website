@@ -21,6 +21,7 @@ const Login = () => {
      const history = useHistory();
      const redirect_url = location.state?.from || '/';
  
+    //  ------------   Redirect if user already logged in    -------------
      useEffect(() => {     
         if(user?.email){       
            history.push("/");

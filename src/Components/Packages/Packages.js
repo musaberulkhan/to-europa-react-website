@@ -7,13 +7,21 @@ const Packages = () => {
 
     const [packages, setPackages] = useState([]);
     let history = useHistory();
+    const [isLoading, setIsLoading] = useState(true);
 
+    //  ----------------    Get All Packages Details   ---------------
     useEffect(() => {
-        fetch('http://localhost:5000/packages')
-        .then(res => res.json())
-        .then(data => setPackages(data));
+        fetch('https://grim-broomstick-65956.herokuapp.com/packages')
+            .then(res => res.json())
+            .then(data => {
+                setPackages(data);
+                setIsLoading(false);
+            });
     }, []);
 
+
+
+    //  ----------------    Handle Book Now On Click  ---------------
     const handleBookNowClick = id => {
         history.push(`/booking/${id}`);
     }
@@ -21,17 +29,32 @@ const Packages = () => {
     return (
         <div className="packages my-5 container">
             <h2 className="text-center py-3">Regular Packages</h2>
-            <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-                {
-                    packages?.map(_package => <Package
-                        key={_package._id}
-                        handleBookNowClick={handleBookNowClick}
-                        _package={_package}
-                    >                        
-                    </Package>)
-                }
-            </div>
-        </div>
+            {
+                isLoading ? (
+                    <div className="text-center">
+                        <div className="spinner-border text-primary" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                )
+                    :
+                    (
+                        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+                            {
+
+                                //  ----------------    Display All Packages   ---------------
+                                packages?.map(_package => <Package
+                                    key={_package._id}
+                                    handleBookNowClick={handleBookNowClick}
+                                    _package={_package}
+                                >
+                                </Package>)
+                            }
+                        </div>
+                    )
+            }
+
+        </div >
     );
 };
 

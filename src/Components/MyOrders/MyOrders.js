@@ -7,16 +7,18 @@ const MyOrders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
 
+    //  ----------------    Get Order Details Using Email   ---------------
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user.email}`)
+        fetch(`https://grim-broomstick-65956.herokuapp.com/orders/${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, []);
 
+    //  ----------------    Handle Cancel Order Button   ---------------
     const handleCancelBookingButton = id => {
         const processed = window.confirm('Are you sure you want to delete?');
         if (processed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://grim-broomstick-65956.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -34,6 +36,7 @@ const MyOrders = () => {
         <div className="myOrders container py-5">
             <h1 className="text-center">My Orders</h1>
             {
+                //  ----------------    Display My Orders   ---------------
                 orders?.map(order => <MyOrder
                     key={order._id}
                     order={order}

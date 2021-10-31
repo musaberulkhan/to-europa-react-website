@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react/cjs/react.development';
 import useAuth from '../../Hooks/useAuth';
 import './Register.css';
 

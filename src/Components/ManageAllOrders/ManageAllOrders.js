@@ -6,16 +6,18 @@ const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
     const [updateId, setUpdateId] = useState('');
 
+    //----------------    Get All Order Details    ---------------
     useEffect(() => {
-        fetch(`http://localhost:5000/orders`)
+        fetch(`https://grim-broomstick-65956.herokuapp.com/orders`)
             .then(res => res.json())
             .then(data => setOrders(data));
-    }, [updateId]);    
+    }, [updateId]);
 
+    //----------------    Handle Cancel Order Button   ---------------
     const handleCancelBookingButton = id => {
         const processed = window.confirm('Are you sure you want to delete?');
         if (processed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://grim-broomstick-65956.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -29,11 +31,12 @@ const ManageAllOrders = () => {
         }
     }
 
+    //----------------    Handle Approve Button    ---------------
     const handleApproveButton = id => {
-        fetch(`http://localhost:5000/orderUpdate/${id}`)
+        fetch(`https://grim-broomstick-65956.herokuapp.com/orderUpdate/${id}`)
             .then(res => res.json())
             .then(data => {
-                if (data.modifiedCount > 0 ) {  
+                if (data.modifiedCount > 0) {
                     setUpdateId(id);
                 }
             });
@@ -43,6 +46,7 @@ const ManageAllOrders = () => {
         <div className="manage-all-orders py-5 container">
             <h1 className="text-center">Manage All Orders</h1>
             {
+                //----------------    display Orders    ---------------
                 orders?.map(order => <ManageOrder
                     key={order._id}
                     order={order}

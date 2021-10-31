@@ -9,16 +9,16 @@ const MyOrder = (props) => {
     const [_package, setPackage] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/packages/${packageId}`)
+        fetch(`https://grim-broomstick-65956.herokuapp.com/packages/${packageId}`)
             .then(res => res.json())
             .then(data => setPackage(data));
     }, []);
 
 
     return (
-        <div className="my-order m-3 p-3 d-flex align-items-center">
+        <div className="my-order m-3 p-3 d-flex flex-column flex-md-row align-items-center">
             <div className="">
-                <img className="package-image img-fluid" src={_package?.image} alt="" />
+                <img className="package-image img-fluid mb-3 mb-md-0" src={_package?.image} alt="" />
             </div>
             <div className="ms-4">
                 <h3>{_package?.name}</h3>

@@ -9,16 +9,18 @@ const Booking = (props) => {
     const [_package, setPackage] = useState({});
     const { user } = useAuth();
     const history = useHistory();
-
-
     const { register, formState: { errors }, handleSubmit } = useForm();
 
+    // ----------------------   Handle Form On Submit    ----------------------- 
     const onSubmit = data => {
+        // ----------------------   Get Form data and add status   -----------------------
         const formData = data;
         formData.user = user.email;
         formData.packageId = _package._id;
         formData.status = "pending";
-        fetch('http://localhost:5000/booking', {
+
+        // ----------------------   Send Form Data to Server    -----------------------
+        fetch('https://grim-broomstick-65956.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -36,9 +38,9 @@ const Booking = (props) => {
             });
     }
 
-
+    // ----------------------   Load Package Details    -----------------------
     useEffect(() => {
-        fetch(`http://localhost:5000/packages/${packageId}`)
+        fetch(`https://grim-broomstick-65956.herokuapp.com/packages/${packageId}`)
             .then(res => res.json())
             .then(data => setPackage(data));
     }, [])
@@ -66,20 +68,27 @@ const Booking = (props) => {
                     </div>
                 </div>
             }
+
+            {/* ----------------------   Billing Information    ----------------------- */}
             <h4 className="mt-5 mb-3 text-center">Billing Information</h4>
-            <div className="d-flex justify-content-center">                
-                <form onSubmit={handleSubmit(onSubmit)}>                  
-                    <p>User Email: {user?.email}</p>                    
+            <div className="d-flex justify-content-center">
+                {/* -----------------   Billing Information Form    --------------- */}
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    {/* -----------------   User Email    --------------- */}
+                    <p>User Email: {user?.email}</p>
+
+                    {/* -----------------   Full Name    --------------- */}
                     <div className="mb-3">
                         <label className="form-label">Full Name</label>
                         <input defaultValue={user?.displayName || ""} type="text" className="form-control" {...register("name", { required: true })} />
                         <p className="text-danger">{errors.name?.type === 'required' && "Name is required"}</p>
                     </div>
+
+                    {/* -----------------   Address    --------------- */}
                     <div className="mb-3">
                         <label className="form-label">Address</label>
                         <input type="text" placeholder="House, Street" className="form-control mb-2" {...register("address", { required: true })} />
                         <p className="text-danger">{errors.address?.type === 'required' && "House, Street is required"}</p>
-
                         <div className="d-flex">
                             <div>
                                 <input type="text" placeholder="Thana/Upazilla" className="form-control me-2" {...register("thana", { required: true })} />
@@ -91,6 +100,8 @@ const Booking = (props) => {
                             </div>
                         </div>
                     </div>
+
+                    {/* -----------------   Payment Method    --------------- */}
                     <div className="mb-3">
                         <label className="form-label">Payment Method </label>
                         <select className="form-control" {...register("payment", { required: true })}>
@@ -100,6 +111,7 @@ const Booking = (props) => {
                         </select>
                     </div>
 
+                    {/* -----------------   Booking Button    --------------- */}
                     <input className="btn btn-dark" type="submit" value="Confirm Booking" />
                 </form>
             </div>

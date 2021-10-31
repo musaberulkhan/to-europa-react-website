@@ -4,6 +4,7 @@ import AboutImage from '../../Images/about.jpg';
 
 const About = () => {
     return (
+        // ----------------------   About Section    -----------------------
         <div className="about my-5 container">
             <h1 className="text-center">About Us</h1>
             <p className="about-text px-3">The success story of our family-owned company started over 30 years ago, at that time under the name of “Tirol Hotels”.
@@ -12,6 +13,8 @@ const About = () => {
                 the travel sector and on our motivated employees. In the future, we would like to become even more service-orientated
                 towards our clients. Optimum cooperation and support, combined with a broad yet flexible product offering are the key
                 ingredients to continuously grow and improve. Look and see!</p>
+            
+                {/* // ----------------------   About Section Image    ----------------------- */}
             <div className="text-center">
                 <img className="img-fluid" src={AboutImage} alt="" />
             </div>          
