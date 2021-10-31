@@ -3,6 +3,7 @@ import './ManageOrder.css';
 
 const ManageOrder = (props) => {
     const { _id, name, address, thana, district, packageId, payment, status } = props.order;
+    const { handleCancelBookingButton } = props;
     const [_package, setPackage] = useState({});
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const ManageOrder = (props) => {
                     <p className="mb-0">Name: {name}</p>
                     <p className="mb-0">Address: {`${address}, ${thana}, ${district}.`}</p>
                     <p className="mb-0">Payment: {payment}</p>
-                    <button className="btn btn-danger">Cancel Booking</button>
+                    <button onClick={() => handleCancelBookingButton(_id)} className="btn btn-danger mt-1">Cancel Booking</button>
                 </div>
             </div>
         </div>
