@@ -19,11 +19,10 @@ const Register = () => {
      const redirect_url = '/';
 
      useEffect(() => {
-         if(user.email){
+         if(user?.email){
             history.push("/");
          }
-     },
-     []);
+     },[user]);
 
     // ----------- Handle Form Login ------------
     const handleFormLogin = (email, password) => {

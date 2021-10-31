@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.css';
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from 'react-router';
@@ -21,7 +21,12 @@ const Login = () => {
      const history = useHistory();
      const redirect_url = location.state?.from || '/';
  
- 
+     useEffect(() => {     
+        if(user?.email){       
+           history.push("/");
+        }
+    },[user]);
+
      // ----------- Handle Google Sign In ------------
      const handleGoogleSignIn = () => {
          signInUsingGoogle()

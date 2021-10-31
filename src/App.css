@@ -2,11 +2,13 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.btn-book-now{
+.btn-book-now,
+.btn-blue{
   background-color: rgb(20, 67, 99);
   color: whitesmoke;
 }
-.btn-book-now:hover{
+.btn-book-now:hover,
+.btn-blue:hover{
   background-color: rgb(5, 79, 129);
   color: whitesmoke;
 }
