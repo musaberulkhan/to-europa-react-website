@@ -14,6 +14,7 @@ import Success from './Components/Booking/Success/Success';
 import MyOrders from './Components/MyOrders/MyOrders';
 import AddNewPackage from './Components/AddNewPackage/AddNewPackage';
 import Contact from './Components/Contact/Contact';
+import ManageAllOrders from './Components/ManageAllOrders/ManageAllOrders';
 
 function App() {
   return (
@@ -47,6 +48,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/add-a-new-package">
               <AddNewPackage></AddNewPackage>
+            </PrivateRoute>
+            <PrivateRoute path="/manage-all-orders">
+              <ManageAllOrders></ManageAllOrders>
             </PrivateRoute>
             <Route path="/contact">
               <Contact></Contact>

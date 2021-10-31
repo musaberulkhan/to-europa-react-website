@@ -4,6 +4,8 @@ import './MyOrder.css';
 const MyOrder = (props) => {
 
     const { _id, packageId, status } = props.order;
+    const { handleCancelBookingButton } = props;
+
     const [_package, setPackage] = useState({});
 
     useEffect(() => {
@@ -30,6 +32,7 @@ const MyOrder = (props) => {
                     }
                 </ul>
                 <h6>Status: {status}</h6>
+                <button onClick={() => handleCancelBookingButton(_id)} className="btn btn-danger">Cancel Booking</button>
             </div>
 
         </div>

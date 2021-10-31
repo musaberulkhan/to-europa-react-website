@@ -67,12 +67,12 @@ const Booking = (props) => {
                 </div>
             }
             <h4 className="mt-5 mb-3 text-center">Billing Information</h4>
-            <div className="d-flex justify-content-center">
-
-                <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="d-flex justify-content-center">                
+                <form onSubmit={handleSubmit(onSubmit)}>                  
+                    <p>User Email: {user?.email}</p>                    
                     <div className="mb-3">
                         <label className="form-label">Full Name</label>
-                        <input type="text" className="form-control" {...register("name", { required: true })} />
+                        <input defaultValue={user?.displayName || ""} type="text" className="form-control" {...register("name", { required: true })} />
                         <p className="text-danger">{errors.name?.type === 'required' && "Name is required"}</p>
                     </div>
                     <div className="mb-3">
