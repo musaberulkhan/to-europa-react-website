@@ -15,27 +15,27 @@ const Navigation = () => {
             <div className="container">
                 <NavLink className="navbar-brand me-3" to="/">
                     <img className="img-fluid navbar-brand-logo" src={Logo} alt="" />
-                    KHAN EYE HOSPITAL</NavLink>
+                    TO-EUROPA</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
                         <NavLink className="nav-link" to="/">Home</NavLink>
+                        <NavLink className="nav-link" to="/packages">Packages</NavLink>
                         <NavLink className="nav-link" to="/about">About</NavLink>
-                        <NavLink className="nav-link" to="/services">Services</NavLink>
-                        <NavLink className="nav-link" to="/doctors">Doctors</NavLink>
+                        <NavLink className="nav-link" to="/contact">Contact</NavLink>
                         {
                             user?.email ?
                                 (
                                     <li className="nav-item dropdown">
-                                        <NavLink to="/" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Admin Panel
-                                        </NavLink>
+                                        </span>
                                         <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><NavLink className="dropdown-item" to="/">My Orders</NavLink></li>
-                                            <li><NavLink className="dropdown-item" to="/">Manage All Orders</NavLink></li>
-                                            <li><NavLink className="dropdown-item" to="/">Add A New Service</NavLink></li>
+                                            <li><NavLink className="dropdown-item" to="/my-orders">My Orders</NavLink></li>
+                                            <li><NavLink className="dropdown-item" to="/manage-all-orders">Manage All Orders</NavLink></li>
+                                            <li><NavLink className="dropdown-item" to="/add-a-new-service">Add A New Service</NavLink></li>
                                         </ul>
                                     </li>
                                 )
