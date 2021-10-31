@@ -4,14 +4,13 @@ import ManageOrder from './ManageOrder/ManageOrder';
 
 const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
+    const [updateId, setUpdateId] = useState('');
 
     useEffect(() => {
         fetch(`http://localhost:5000/orders`)
             .then(res => res.json())
             .then(data => setOrders(data));
-    }, []);
-
-    console.log(orders);
+    }, [updateId]);    
 
     const handleCancelBookingButton = id => {
         const processed = window.confirm('Are you sure you want to delete?');
@@ -30,6 +29,16 @@ const ManageAllOrders = () => {
         }
     }
 
+    const handleApproveButton = id => {
+        fetch(`http://localhost:5000/orderUpdate/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0 ) {  
+                    setUpdateId(id);
+                }
+            });
+    }
+
     return (
         <div className="manage-all-orders py-5 container">
             <h1 className="text-center">Manage All Orders</h1>
@@ -38,6 +47,7 @@ const ManageAllOrders = () => {
                     key={order._id}
                     order={order}
                     handleCancelBookingButton={handleCancelBookingButton}
+                    handleApproveButton={handleApproveButton}
                 >
                 </ManageOrder>)
             }

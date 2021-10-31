@@ -17,6 +17,7 @@ import Contact from './Components/Contact/Contact';
 import ManageAllOrders from './Components/ManageAllOrders/ManageAllOrders';
 import NotFound from './Components/NotFound/NotFound';
 import About from './Components/About/About';
+import Offers from './Components/Offers/Offers';
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
             </Route>
             <Route path="/packages">
               <Packages></Packages>
+            </Route>
+            <Route path="/offers">
+              <Offers></Offers>
             </Route>
             <PrivateRoute path="/booking/:packageId">
               <Booking></Booking>

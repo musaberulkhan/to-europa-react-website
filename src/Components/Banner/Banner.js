@@ -12,7 +12,7 @@ const Banner = () => {
         history.push("/packages");
     }
     const handleViewOffersOnClick = () => {
-        console.log("");
+        history.push("/offers");
     }
     const handleSignUpOnClick = () => {
         history.push("/register");
